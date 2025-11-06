@@ -3,9 +3,9 @@ export default class AlternativeRespository {
         this.connection = connection
     }
 
-    add(){}
-    delete(){}
-    update(){}
-    get(){}
-    getAll(){}
+    async add(){}
+    async delete(){}
+    async update(){}
+    async get(){}
+    async getAll(){}
 }
