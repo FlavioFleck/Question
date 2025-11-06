@@ -5,7 +5,8 @@ export default class ProvaService {
         this.provaRepository = new ProvaRepository(connection)
     }
 
-    async createProva() {}
+    async createProva(payload) {
+    }
     async deleteProva() {}
     async updateProva() {}
 }

@@ -4,7 +4,7 @@ export default class QuestionRespository {
     }
 
     async add(question){
-        const query = "INSERT INTO question(provaId, ordem, question, imagens) VALUES (?, ?, ?, ?)"
+        const query = "INSERT INTO questions(provaId, ordem, question, imagens) VALUES (?, ?, ?, ?)"
         const [info] = this.connection.query(query, [
             question.provaId,
             question.ordem,
