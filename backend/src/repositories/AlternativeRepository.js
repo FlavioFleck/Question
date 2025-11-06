@@ -3,7 +3,7 @@ export default class AlternativeRespository {
         this.connection = connection
     }
 
-    async add(alternative){
+    async add(alternative){ 
         const query = "INSERT INTO alternatives(questionId, description, correct) VALUES (?, ?, ?)"
         const [info] = this.connection.query(query, [
             alternative.questionId,
@@ -13,8 +13,22 @@ export default class AlternativeRespository {
 
         return info.insertId
     }
-    async delete(){}
-    async update(){}
+
+    async delete(id) {
+        const query = "DELETE FROM alternatives WHERE id = ?"
+        const [info] = this.connection.query(query, [id])
+        return info.affectedRows
+    }
+
+    async update(id, alternativeAlt) {
+        const query = "UPDATE provas SET description = ?, correct = ? WHERE id = ?"
+        const [info] = this.connection.query(query, [
+            alternativeAlt.description,
+            alternativeAlt.correct,
+            id,
+        ])
+        return info.affectedRows
+    }
     async get(){}
     async getAll(){}
 }

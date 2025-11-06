@@ -14,8 +14,23 @@ export default class QuestionRespository {
 
         return info.insertId
     }
-    async delete(){}
-    async update(){}
+
+    async delete(id) {
+        const query = "DELETE FROM questions WHERE id = ?"
+        const [info] = this.connection.query(query, [id])
+        return info.affectedRows
+    }
+
+    async update(id, questionAlt){
+        const query = "UPDATE provas SET ordem = ?, imagens = ? WHERE id = ?"
+        const [info] = this.connection.query(query, [
+            questionAlt.ordem,
+            questionAlt.imagens,
+            id
+        ])
+        return info.affectedRows
+    }
+
     async get(){}
     async getAll(){}
 }
