@@ -1,4 +1,4 @@
-export default class ProvaRespository {
+export default class AlternativeRespository {
     constructor(connection) {
         this.connection = connection
     }
